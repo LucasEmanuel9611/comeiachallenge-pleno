@@ -1,13 +1,13 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
+  background-image: linear-gradient(to bottom, #eee 60%, #c4c4c4);
   display: flex;
   align-items: center;
   justify-content: center;
   min-height: 100vh;
   min-width: 100%;
-  background: #0f0f0f;
-  background: #e0e0e0;
+  
 
   .arrow-left {
     position: absolute;
@@ -15,6 +15,8 @@ export const Container = styled.div`
     left: 0;
     margin-top: 25px;
     margin-left: 25px;
+    background: transparent;
+    border: none;
   }
 
   .weather-icon {
@@ -26,6 +28,7 @@ export const Container = styled.div`
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    margin-top: 70px;
 
     h1 {
       color: #fff;
@@ -60,7 +63,7 @@ export const TempeatureInfos = styled.div`
   align-items: flex-start;
   margin-top: 35px;
 
-  .right-area-weather{
+  .right-area-weather {
     display: flex;
     flex-direction: column;
     width: 55px;
@@ -71,12 +74,12 @@ export const TempeatureInfos = styled.div`
     .max-min-area {
       display: flex;
       flex-direction: column;
-      margin-top: 17px;  
-      .arrow-area{
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          flex-direction: row;
+      margin-top: 17px;
+      .arrow-area {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: row;
       }
     }
 
@@ -87,3 +90,48 @@ export const TempeatureInfos = styled.div`
     }
   }
 `;
+
+export const WeatherTimes = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  /* background-color: red; */
+  width: 330px;
+  margin: 10px;
+  margin-top: 50px;
+  
+  div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+`;
+
+export const FooterInfos = styled.div`
+ display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  /* background-color: red; */
+  width: 330px;
+  margin: 10px;
+  margin-top: 50px;
+  
+  div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .footer-title{
+      color: #555;
+      margin-bottom: 5px;
+    }
+  }
+
+  .separator{
+    color: #999;
+  }
+`

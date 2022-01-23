@@ -8,21 +8,10 @@ import { Container, CityButtons } from "./styles";
 
 import { useNavigate } from "react-router-dom";
 
-import api from '../../services/api'
+import api from "../../services/api";
 
 export default function Home() {
   const navigate = useNavigate();
-
-  // function getDates() {
-  //   api
-  //     .get(`weather?q=caruaru&appid=4f723f13e3103b9248ee95c6c653c48c`)
-  //     .then((e) => console.log('then',e.data))
-  //     .catch((e) => console.log('error',e.data));
-  // }
-
-  // React.useEffect(() => {
-  //   getDates();
-  // });
 
   return (
     <Container className="container">
@@ -35,23 +24,42 @@ export default function Home() {
           <div>
             <button
               style={{ display: "flex", justifyContent: "flex-start" }}
-              onClick={() => navigate("/weather/dallol", {name: 'dallol'})}
+              onClick={() => navigate("/weather/dallol")}
             >
               Dallol
             </button>
-            <button className="center-buttons">Fairbanks</button>
-            <button style={{ display: "flex", justifyContent: "flex-end" }}>
+            <button
+              className="center-buttons"
+              onClick={() => navigate("/weather/fairbanks")}
+            >
+              Fairbanks
+            </button>
+            <button
+              style={{ display: "flex", justifyContent: "flex-end" }}
+              onClick={() => navigate("/weather/london")}
+            >
               London
             </button>
           </div>
 
           <div>
-            <button style={{ display: "flex", justifyContent: "flex-start" }}>
-              Paris
+            <button
+              style={{ display: "flex", justifyContent: "flex-start" }}
+              onClick={() => navigate("/weather/caruaru")}
+            >
+              Caruaru
             </button>
-            <button className="center-buttons">Garanhus</button>
-            <button style={{ display: "flex", justifyContent: "flex-end" }}>
-              Lima
+            <button
+              className="center-buttons"
+              onClick={() => navigate("/weather/vancouver")}
+            >
+              Vancouver
+            </button>
+            <button
+              style={{ display: "flex", justifyContent: "flex-end" }}
+              onClick={() => navigate("/weather/yakutsk")}
+            >
+              Yakutsk
             </button>
           </div>
         </CityButtons>
