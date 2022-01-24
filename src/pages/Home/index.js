@@ -8,13 +8,18 @@ import { Container, CityButtons } from "./styles";
 
 import { useNavigate } from "react-router-dom";
 
-import api from "../../services/api";
+import moment from "moment-timezone";
+import { TiZoom } from "react-icons/ti";
 
 export default function Home() {
   const navigate = useNavigate();
 
+  React.useEffect(() => {
+    console.log(moment(1643032800).format('LT'))
+  })
+
   return (
-    <Container className="container">
+    <Container className="container" >
       <div>
         <h1>WEATHER</h1>
         <h4>select a city</h4>

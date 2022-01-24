@@ -7,7 +7,8 @@ export const Container = styled.div`
   justify-content: center;
   min-height: 100vh;
   min-width: 100%;
-  
+
+ 
 
   .arrow-left {
     position: absolute;
@@ -30,11 +31,12 @@ export const Container = styled.div`
     flex-direction: column;
     margin-top: 70px;
 
+ 
+
     h1 {
-      color: #fff;
+      color: #333;
       font-size: 40px;
       font-weight: 300;
-      color: #000;
     }
 
     h2 {
@@ -43,11 +45,10 @@ export const Container = styled.div`
     }
 
     h4 {
-      color: #fff;
+      color: #333;
 
       font-weight: 200;
       font-size: 28px;
-      color: #333;
     }
 
     img {
@@ -62,6 +63,10 @@ export const TempeatureInfos = styled.div`
   /* background-color: blue; */
   align-items: flex-start;
   margin-top: 35px;
+  
+  h2 {
+    color: #333;
+  }
 
   .right-area-weather {
     display: flex;
@@ -87,6 +92,7 @@ export const TempeatureInfos = styled.div`
       font-size: 25px;
       font-weight: 400;
       padding-left: 25px;
+      color: #333;
     }
   }
 `;
@@ -100,7 +106,7 @@ export const WeatherTimes = styled.div`
   width: 330px;
   margin: 10px;
   margin-top: 50px;
-  
+
   div {
     display: flex;
     flex-direction: column;
@@ -110,7 +116,7 @@ export const WeatherTimes = styled.div`
 `;
 
 export const FooterInfos = styled.div`
- display: flex;
+  display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
@@ -118,20 +124,20 @@ export const FooterInfos = styled.div`
   width: 330px;
   margin: 10px;
   margin-top: 50px;
-  
+
   div {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 
-    .footer-title{
+    .footer-title {
       color: #555;
       margin-bottom: 5px;
     }
   }
 
-  .separator{
+  .separator {
     color: #999;
   }
-`
+`;
