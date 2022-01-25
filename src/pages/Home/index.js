@@ -1,22 +1,17 @@
 import React from "react";
 
 //assets
-import earthImg from "../../assets/earth.png";
+import earthImg from "../../assets/earth-white.png";
 
 //styled components
 import { Container, CityButtons } from "./styles";
 
-import { useNavigate } from "react-router-dom";
 
-import moment from "moment-timezone";
-import { TiZoom } from "react-icons/ti";
+//libs
+import { useNavigate } from "react-router-dom";
 
 export default function Home() {
   const navigate = useNavigate();
-
-  React.useEffect(() => {
-    console.log(moment(1643032800).format('LT'))
-  })
 
   return (
     <Container className="container" >

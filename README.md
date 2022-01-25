@@ -1,12 +1,21 @@
-  if (
-    (moment(new Date(item.dt * 1000)).format("LT") ===
-      "3:00 AM") |
-    (moment(new Date(item.dt * 1000)).format("LT") ===
-      "9:00 AM") |
-    (moment(new Date(item.dt * 1000)).format("LT") ===
-      "3:00 PM") |
-    (moment(new Date(item.dt * 1000)).format("LT") ===
-      "9:00 PM")
-  ) {
-    return <span>{item?.weather[0]?.main}</span>
-  }
+Weather Aplication
+
+================================
+
+## Comeia Challenge
+
+<img src="https://github.com/LucasEmanuel9611/comeiachallenge-pleno/blob/master/src/assets/home.png" alt="imgHome"/>
+
+<img src="https://github.com/LucasEmanuel9611/comeiachallenge-pleno/blob/master/src/assets/weather-1.png" alt="imgWeather1"/>
+
+<img src="https://github.com/LucasEmanuel9611/comeiachallenge-pleno/blob/master/src/assets/weather-2.png" alt="imgWeather2"/>
+
+### Aprendizados e tecnologias usados:
+
+* React Router Dom
+* React Icons
+* Axios
+* Styled Components
+* Bootstrap
+* Moment
+* Global styles

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import colors from '../../configs/colors'
 
 export const Container = styled.div`
   background-image: linear-gradient(to bottom, #eee 60%, #c4c4c4);
@@ -34,7 +35,7 @@ export const Container = styled.div`
  
 
     h1 {
-      color: #333;
+      color: ${colors.gray};
       font-size: 40px;
       font-weight: 300;
     }
@@ -45,7 +46,7 @@ export const Container = styled.div`
     }
 
     h4 {
-      color: #333;
+      color: ${colors.gray};
 
       font-weight: 200;
       font-size: 28px;
@@ -60,12 +61,11 @@ export const Container = styled.div`
 
 export const TempeatureInfos = styled.div`
   display: flex;
-  /* background-color: blue; */
   align-items: flex-start;
   margin-top: 35px;
   
   h2 {
-    color: #333;
+    color: ${colors.gray};
   }
 
   .right-area-weather {
@@ -73,7 +73,6 @@ export const TempeatureInfos = styled.div`
     flex-direction: column;
     width: 55px;
     min-height: 100%;
-    /* background-color: red; */
     justify-content: space-between;
 
     .max-min-area {
@@ -92,7 +91,7 @@ export const TempeatureInfos = styled.div`
       font-size: 25px;
       font-weight: 400;
       padding-left: 25px;
-      color: #333;
+      color: ${colors.gray};
     }
   }
 `;
@@ -101,7 +100,6 @@ export const WeatherTimes = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  /* background-color: red; */
   width: 100%;
   margin: 10px;
   margin-top: 50px;
@@ -111,7 +109,6 @@ export const WeatherTimes = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    /* background-color: blue; */
   }
 `;
 
@@ -120,7 +117,6 @@ export const FooterInfos = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  /* background-color: red; */
   width: 330px;
   margin: 10px;
   margin-top: 50px;
@@ -132,7 +128,7 @@ export const FooterInfos = styled.div`
     justify-content: center;
 
     .footer-title {
-      color: #555;
+      color: ${colors.lightGray};
       margin-bottom: 5px;
     }
   }
