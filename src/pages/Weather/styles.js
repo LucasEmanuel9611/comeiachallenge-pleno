@@ -100,10 +100,9 @@ export const TempeatureInfos = styled.div`
 export const WeatherTimes = styled.div`
   display: flex;
   flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
   /* background-color: red; */
-  width: 330px;
+  width: 100%;
   margin: 10px;
   margin-top: 50px;
 
@@ -112,6 +111,7 @@ export const WeatherTimes = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    /* background-color: blue; */
   }
 `;
 

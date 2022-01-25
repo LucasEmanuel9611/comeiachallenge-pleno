@@ -10,9 +10,10 @@ import {
 
 //libs
 import { useParams } from "react-router-dom";
-import api from "../../services/api";
 import { useNavigate } from "react-router-dom";
+import moment from "moment";
 
+//icons
 import {
   WiSnowWind,
   WiThunderstorm,
@@ -29,17 +30,16 @@ import {
   WiNightSnow
 } from "react-icons/wi";
 
-//icons
 import { FaArrowLeft } from "react-icons/fa";
 import { RiArrowDownFill, RiArrowUpFill } from "react-icons/ri";
 
-import moment from "moment";
+//my imports
+import api from "../../services/api";
 
 export default function Weather() {
   const [dates, setDates] = React.useState({});
   const [weather, setWeather] = React.useState();
   const [temp, setTemp] = React.useState();
-  const [forecastShow, setForecastShow] = React.useState([]);
   const [forecast, setForecast] = React.useState([]);
 
   let { city } = useParams();
@@ -209,7 +209,7 @@ export default function Weather() {
                   position += 1;
                   return (
                     <>
-                      <span>
+                      
                         {max < 5 ? (
                           <div>
                             <span style={temp > 20 ? { color: "#fff" } : {}}>
@@ -348,36 +348,16 @@ export default function Weather() {
                             )}
 
                             <span style={temp > 20 ? { color: "#fff" } : {}}>
-                              {item.temp}°C{" "}
-                              {/* {moment(new Date(item.dt * 1000)).format("LT")} */}
+                              {item.temp}°C
                             </span>
                           </div>
                         ) : (
-                          ""
+                          <></>
                         )}
-                      </span>
                     </>
                   );
                 }
               })}
-
-              {/*<div>
-                <span style={temp > 20 ? { color: "#fff" } : {}}>morning</span>
-                <WiSnowWind size={55} color={temp > 20 ? "#fff" : "#333"} />
-                <span style={temp > 20 ? { color: "#fff" } : {}}>8°C</span>
-              </div>
-              <div>
-                <span style={temp > 20 ? { color: "#fff" } : {}}>
-                  afternoon
-                </span>
-                <WiSnowWind size={55} color={temp > 20 ? "#fff" : "#333"} />
-                <span style={temp > 20 ? { color: "#fff" } : {}}>8°C</span>
-              </div>
-              <div>
-                <span style={temp > 20 ? { color: "#fff" } : {}}>night</span>
-                <WiSnowWind size={55} color={temp > 20 ? "#fff" : "#333"} />
-                <span style={temp > 20 ? { color: "#fff" } : {}}>8°C</span>
-              </div> */}
             </WeatherTimes>
 
             <FooterInfos>
