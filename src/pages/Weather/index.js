@@ -34,6 +34,7 @@ import { RiArrowDownFill, RiArrowUpFill } from "react-icons/ri";
 
 //my imports
 import api from "../../services/api";
+import colors from '../../configs/colors'
 
 export default function Weather() {
   const [dates, setDates] = React.useState({});
@@ -106,36 +107,36 @@ export default function Weather() {
           }
         >
           <button className="arrow-left" onClick={() => navigate(-1)}>
-            <FaArrowLeft size={30} color={temp > 17 ? "#fff" : "#333"} />
+            <FaArrowLeft size={30} color={temp > 17 ? `${colors.white}` : `${colors.gray}`} />
           </button>
           <div className="weather-infos">
-            <h1 style={temp > 17 ? { color: "#fff" } : {}}>
+            <h1 style={temp > 17 ? { color: `${colors.white}` } : {}}>
               {city.toUpperCase()}
             </h1>
-            <h4 style={temp > 17 ? { color: "#fff" } : {}}>{weather}</h4>
+            <h4 style={temp > 17 ? { color: `${colors.white}` } : {}}>{weather}</h4>
 
             <TempeatureInfos>
-              <h2 style={temp > 17 ? { color: "#fff" } : {}}>
+              <h2 style={temp > 17 ? { color: `${colors.white}` } : {}}>
                 {parseInt(dates?.main?.temp)}
               </h2>
               <div className="right-area-weather">
-                <h5 style={temp > 17 ? { color: "#fff" } : {}}>°C</h5>
+                <h5 style={temp > 17 ? { color: `${colors.white}` } : {}}>°C</h5>
                 <div className="max-min-area">
                   <div className="arrow-area">
                     <RiArrowUpFill
                       size={20}
-                      color={temp > 17 ? "#fff" : "#555"}
+                      color={temp > 17 ? `${colors.white}` : `${colors.lightGray}`}
                     />
-                    <span style={temp > 17 ? { color: "#fff" } : {}}>
+                    <span style={temp > 17 ? { color: `${colors.white}` } : {}}>
                       {parseInt(dates?.main?.temp_max)}°
                     </span>
                   </div>
                   <div className="arrow-area">
                     <RiArrowDownFill
                       size={20}
-                      color={temp > 17 ? "#fff" : "#555"}
+                      color={temp > 17 ? `${colors.white}` : `${colors.lightGray}`}
                     />
-                    <span style={temp > 17 ? { color: "#fff" } : {}}>
+                    <span style={temp > 17 ? { color: `${colors.white}` } : {}}>
                       {parseInt(dates?.main?.temp_min)}°
                     </span>
                   </div>
@@ -147,49 +148,49 @@ export default function Weather() {
               <WiThunderstorm
                 size={150}
                 className="weather-icon"
-                color={temp > 17 ? "#fff" : "#333"}
+                color={temp > 17 ? `${colors.white}` : `${colors.gray}`}
               />
             ) : weather === "Drizzle" ? (
               <WiSleet
                 size={150}
                 className="weather-icon"
-                color={temp > 17 ? "#fff" : "#333"}
+                color={temp > 17 ? `${colors.white}` : `${colors.gray}`}
               />
             ) : weather === "Rain" ? (
               <WiStormShowers
                 size={150}
                 className="weather-icon"
-                color={temp > 17 ? "#fff" : "#333"}
+                color={temp > 17 ? `${colors.white}` : `${colors.gray}`}
               />
             ) : weather === "Snow" ? (
               <WiSnow
                 size={150}
                 className="weather-icon"
-                color={temp > 17 ? "#fff" : "#333"}
+                color={temp > 17 ? `${colors.white}` : `${colors.gray}`}
               />
             ) : weather === "Atmosphere" ? (
               <WiFog
                 size={150}
                 className="weather-icon"
-                color={temp > 17 ? "#fff" : "#333"}
+                color={temp > 17 ? `${colors.white}` : `${colors.gray}`}
               />
             ) : weather === "Clear" ? (
               <WiDaySunny
                 size={150}
                 className="weather-icon"
-                color={temp > 17 ? "#fff" : "#333"}
+                color={temp > 17 ? `${colors.white}` : `${colors.gray}`}
               />
             ) : weather === "Clouds" ? (
               <WiDayFog
                 size={150}
                 className="weather-icon"
-                color={temp > 17 ? "#fff" : "#333"}
+                color={temp > 17 ? `${colors.white}` : `${colors.gray}`}
               />
             ) : weather === "Fog" ? (
               <WiFog
                 size={150}
                 className="weather-icon"
-                color={temp > 17 ? "#fff" : "#333"}
+                color={temp > 17 ? `${colors.white}` : `${colors.gray}`}
               />
             ) : (
               <></>
@@ -214,7 +215,7 @@ export default function Weather() {
                       
                         {max < 5 ? (
                           <div>
-                            <span style={temp > 17 ? { color: "#fff" } : {}}>
+                            <span style={temp > 17 ? { color: `${colors.white}` } : {}}>
                             {forecastPosition === 1 ? 'dawn' : forecastPosition === 2 ? 'morning' : forecastPosition === 3 ? 'afternoon' : forecastPosition === 4 ? 'night' : null}
                             </span>
                             {weather === "Thunderstorm" ? (
@@ -223,13 +224,13 @@ export default function Weather() {
                                   <WiThunderstorm
                                     size={55}
                                     className="weather-icon"
-                                    color={temp > 17 ? "#fff" : "#333"}
+                                    color={temp > 17 ? `${colors.white}` : `${colors.gray}`}
                                   />
                                 ) : (
                                   <WiNightThunderstorm
                                     size={55}
                                     className="weather-icon"
-                                    color={temp > 17 ? "#fff" : "#333"}
+                                    color={temp > 17 ? `${colors.white}` : `${colors.gray}`}
                                   />
                                 )}
                               </>
@@ -239,13 +240,13 @@ export default function Weather() {
                                   <WiSleet
                                     size={55}
                                     className="weather-icon"
-                                    color={temp > 17 ? "#fff" : "#333"}
+                                    color={temp > 17 ? `${colors.white}` : `${colors.gray}`}
                                   />
                                 ) : (
                                   <WiNightFog
                                     size={55}
                                     className="weather-icon"
-                                    color={temp > 17 ? "#fff" : "#333"}
+                                    color={temp > 17 ? `${colors.white}` : `${colors.gray}`}
                                   />
                                 )}
                               </>
@@ -255,13 +256,13 @@ export default function Weather() {
                                   <WiStormShowers
                                     size={55}
                                     className="weather-icon"
-                                    color={temp > 17 ? "#fff" : "#333"}
+                                    color={temp > 17 ? `${colors.white}` : `${colors.gray}`}
                                   />
                                 ) : (
                                   <WiNightStormShowers
                                     size={55}
                                     className="weather-icon"
-                                    color={temp > 17 ? "#fff" : "#333"}
+                                    color={temp > 17 ? `${colors.white}` : `${colors.gray}`}
                                   />
                                 )}
                               </>
@@ -271,13 +272,13 @@ export default function Weather() {
                                   <WiSnow
                                     size={55}
                                     className="weather-icon"
-                                    color={temp > 17 ? "#fff" : "#333"}
+                                    color={temp > 17 ? `${colors.white}` : `${colors.gray}`}
                                   />
                                 ) : (
                                   <WiNightSnow
                                     size={55}
                                     className="weather-icon"
-                                    color={temp > 17 ? "#fff" : "#333"}
+                                    color={temp > 17 ? `${colors.white}` : `${colors.gray}`}
                                   />
                                 )}
                               </>
@@ -287,13 +288,13 @@ export default function Weather() {
                                   <WiFog
                                     size={55}
                                     className="weather-icon"
-                                    color={temp > 17 ? "#fff" : "#333"}
+                                    color={temp > 17 ? `${colors.white}` : `${colors.gray}`}
                                   />
                                 ) : (
                                   <WiNightFog
                                     size={55}
                                     className="weather-icon"
-                                    color={temp > 17 ? "#fff" : "#333"}
+                                    color={temp > 17 ? `${colors.white}` : `${colors.gray}`}
                                   />
                                 )}
                               </>
@@ -303,13 +304,13 @@ export default function Weather() {
                                   <WiDaySunny
                                     size={55}
                                     className="weather-icon"
-                                    color={temp > 17 ? "#fff" : "#333"}
+                                    color={temp > 17 ? `${colors.white}` : `${colors.gray}`}
                                   />
                                 ) : (
                                   <WiNightClear
                                     size={55}
                                     className="weather-icon"
-                                    color={temp > 17 ? "#fff" : "#333"}
+                                    color={temp > 17 ? `${colors.white}` : `${colors.gray}`}
                                   />
                                 )}
                               </>
@@ -319,13 +320,13 @@ export default function Weather() {
                                   <WiDayFog
                                     size={55}
                                     className="weather-icon"
-                                    color={temp > 17 ? "#fff" : "#333"}
+                                    color={temp > 17 ? `${colors.white}` : `${colors.gray}`}
                                   />
                                 ) : (
                                   <WiNightFog
                                     size={55}
                                     className="weather-icon"
-                                    color={temp > 17 ? "#fff" : "#333"}
+                                    color={temp > 17 ? `${colors.white}` : `${colors.gray}`}
                                   />
                                 )}
                               </>
@@ -335,13 +336,13 @@ export default function Weather() {
                                   <WiFog
                                     size={55}
                                     className="weather-icon"
-                                    color={temp > 17 ? "#fff" : "#333"}
+                                    color={temp > 17 ? `${colors.white}` : `${colors.gray}`}
                                   />
                                 ) : (
                                   <WiNightFog
                                     size={55}
                                     className="weather-icon"
-                                    color={temp > 17 ? "#fff" : "#333"}
+                                    color={temp > 17 ? `${colors.white}` : `${colors.gray}`}
                                   />
                                 )}
                               </>
@@ -349,7 +350,7 @@ export default function Weather() {
                               <></>
                             )}
 
-                            <span style={temp > 17 ? { color: "#fff" } : {}}>
+                            <span style={temp > 17 ? { color: `${colors.white}` } : {}}>
                               {item.temp}°C
                             </span>
                           </div>
@@ -370,13 +371,13 @@ export default function Weather() {
                 >
                   wind speed
                 </span>
-                <spa style={temp > 17 ? { color: "#fff" } : {}}>
+                <spa style={temp > 17 ? { color: `${colors.white}` } : {}}>
                   {dates?.wind?.speed} m/s
                 </spa>
               </div>
               <span
                 className="separator"
-                style={temp > 17 ? { color: "#fff" } : {}}
+                style={temp > 17 ? { color: `${colors.white}` } : {}}
               >
                 |
               </span>
@@ -388,13 +389,13 @@ export default function Weather() {
                 >
                   sunrise
                 </span>
-                <span style={temp > 17 ? { color: "#fff" } : {}}>
+                <span style={temp > 17 ? { color: `${colors.white}` } : {}}>
                   {moment(new Date(dates?.sys?.sunrise * 1000)).format("LT")}
                 </span>
               </div>
               <span
                 className="separator"
-                style={temp > 17 ? { color: "#fff" } : {}}
+                style={temp > 17 ? { color: `${colors.white}` } : {}}
               >
                 |
               </span>
@@ -406,13 +407,13 @@ export default function Weather() {
                 >
                   sunset
                 </span>
-                <span style={temp > 17 ? { color: "#fff" } : {}}>
+                <span style={temp > 17 ? { color: `${colors.white}` } : {}}>
                   {moment(new Date(dates?.sys?.sunset * 1000)).format("LT")}
                 </span>
               </div>
               <span
                 className="separator"
-                style={temp > 17 ? { color: "#fff" } : {}}
+                style={temp > 17 ? { color: `${colors.white}` } : {}}
               >
                 |
               </span>
@@ -424,7 +425,7 @@ export default function Weather() {
                 >
                   humidity
                 </span>
-                <span style={temp > 17 ? { color: "#fff" } : {}}>
+                <span style={temp > 17 ? { color: `${colors.white}` } : {}}>
                   {parseInt(dates?.main?.humidity)}%
                 </span>
               </div>
