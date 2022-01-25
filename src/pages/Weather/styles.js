@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import colors from '../../configs/colors'
+import colors from "../../configs/colors";
 
 export const Container = styled.div`
   background-image: linear-gradient(to bottom, #eee 60%, #c4c4c4);
@@ -8,8 +8,6 @@ export const Container = styled.div`
   justify-content: center;
   min-height: 100vh;
   min-width: 100%;
-
- 
 
   .arrow-left {
     position: absolute;
@@ -31,8 +29,17 @@ export const Container = styled.div`
     justify-content: center;
     flex-direction: column;
     margin-top: 70px;
+    animation-duration: 2s;
+    animation-name: slideup;
 
- 
+    @keyframes slideup {
+      from {
+        padding-top: 400px;
+      }
+
+      to {
+      }
+    }
 
     h1 {
       color: ${colors.gray};
@@ -63,7 +70,7 @@ export const TempeatureInfos = styled.div`
   display: flex;
   align-items: flex-start;
   margin-top: 35px;
-  
+
   h2 {
     color: ${colors.gray};
   }
@@ -120,6 +127,7 @@ export const FooterInfos = styled.div`
   width: 330px;
   margin: 10px;
   margin-top: 50px;
+  padding-bottom: 100px;
 
   div {
     display: flex;

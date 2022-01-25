@@ -8,11 +8,24 @@ export const Container = styled.div`
   min-width: 100%;
   background: #0f0f0f;
 
+  
+
   div {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    animation-duration: 3s;
+  animation-name: slideup;
+
+    @keyframes slideup {
+      from {
+        padding-top: 400px;
+      }
+
+      to {
+      }
+    }
 
     h1 {
       color: #fff;
