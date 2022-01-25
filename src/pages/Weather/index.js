@@ -21,16 +21,19 @@ import {
   WiSnow,
   WiFog,
   WiDaySunny,
+  WiNightClear,
   WiDayFog,
+  WiNightFog,
+  WiNightThunderstorm,
+  WiNightStormShowers,
+  WiNightSnow
 } from "react-icons/wi";
 
 //icons
 import { FaArrowLeft } from "react-icons/fa";
-import { TiWeatherCloudy } from "react-icons/ti";
 import { RiArrowDownFill, RiArrowUpFill } from "react-icons/ri";
 
 import moment from "moment";
-import ForecastItem from "../../components/ForecastItem";
 
 export default function Weather() {
   const [dates, setDates] = React.useState({});
@@ -45,23 +48,22 @@ export default function Weather() {
   function getWheather() {
     api
       .get(
-        `weather?q=${city}&appid=8669c16ce3c9d26e0c8f054801285154&exclude=minutely&units=metric`
+        `weather?q=${city}&appid=7acd82c636b3dfe48b420904d4b5eed7&exclude=minutely&units=metric`
       )
       .then((e) => {
         // console.log(e.data);
         setDates(e.data);
         setWeather(e.data?.weather[0]?.main);
         setTemp(e.data?.main?.temp);
-        // coords.lat = e.data?.coord.lat;
-        // coords.lon = e.data?.coord.lon;
+
+        console.log(e.data);
         api
           .get(
-            `onecall?lat=33.44&lon=-94.04&exclude=current&appid=8669c16ce3c9d26e0c8f054801285154`
+            `onecall?lat=${e.data.coord.lat}&lon=${e.data.coord.lon}&exclude=current&appid=7acd82c636b3dfe48b420904d4b5eed7&units=metric`
           )
           .then(async (e) => {
             // // console.log(forecast)
-            let forecastEscopo = e.data.hourly;
-            setForecast([...forecastEscopo]);
+            setForecast(e.data.hourly);
           });
       })
 
@@ -71,15 +73,21 @@ export default function Weather() {
   React.useEffect(async () => {
     await getWheather();
 
-    // console.log(forecast);
+    var reorderArray = forecast.map((item) => {
+      if (
+        moment(new Date(item.dt * 1000))
+          .format("LT")
+          .indexOf("PM")
+      ) {
+        return reorderArray.push(item);
+      } else {
+        return reorderArray[item.length - 1];
+      }
+    });
   }, []);
 
-  React.useEffect(async () => {
-    // console.log(forecast);
-  }, [forecast]);
-
-  var max = 0
-
+  var max = 0;
+  var position = 0;
   return (
     <div>
       {dates.weather != undefined ? (
@@ -187,24 +195,173 @@ export default function Weather() {
             )}
 
             <WeatherTimes>
-              
+              {forecast.map((item) => {
+                if (
+                  (moment(new Date(item.dt * 1000)).format("LT") ===
+                    "3:00 AM") |
+                  (moment(new Date(item.dt * 1000)).format("LT") ===
+                    "9:00 AM") |
+                  (moment(new Date(item.dt * 1000)).format("LT") ===
+                    "3:00 PM") |
+                  (moment(new Date(item.dt * 1000)).format("LT") === "9:00 PM")
+                ) {
+                  max += 1;
+                  position += 1;
+                  return (
+                    <>
+                      <span>
+                        {max < 5 ? (
+                          <div>
+                            <span style={temp > 20 ? { color: "#fff" } : {}}>
+                              {item.weather[0].main}
+                            </span>
+                            {weather === "Thunderstorm" ? (
+                              <>
+                                {position != 4 ? (
+                                  <WiThunderstorm
+                                    size={55}
+                                    className="weather-icon"
+                                    color={temp > 20 ? "#fff" : "#333"}
+                                  />
+                                ) : (
+                                  <WiNightThunderstorm
+                                    size={55}
+                                    className="weather-icon"
+                                    color={temp > 20 ? "#fff" : "#333"}
+                                  />
+                                )}
+                              </>
+                            ) : weather === "Drizzle" ? (
+                              <>
+                                {position != 4 ? (
+                                  <WiSleet
+                                    size={55}
+                                    className="weather-icon"
+                                    color={temp > 20 ? "#fff" : "#333"}
+                                  />
+                                ) : (
+                                  <WiNightFog
+                                    size={55}
+                                    className="weather-icon"
+                                    color={temp > 20 ? "#fff" : "#333"}
+                                  />
+                                )}
+                              </>
+                            ) : weather === "Rain" ? (
+                              <>
+                                {position != 4 ? (
+                                  <WiStormShowers
+                                    size={55}
+                                    className="weather-icon"
+                                    color={temp > 20 ? "#fff" : "#333"}
+                                  />
+                                ) : (
+                                  <WiNightStormShowers
+                                    size={55}
+                                    className="weather-icon"
+                                    color={temp > 20 ? "#fff" : "#333"}
+                                  />
+                                )}
+                              </>
+                            ) : weather === "Snow" ? (
+                              <>
+                                {position != 4 ? (
+                                  <WiSnow
+                                    size={55}
+                                    className="weather-icon"
+                                    color={temp > 20 ? "#fff" : "#333"}
+                                  />
+                                ) : (
+                                  <WiNightSnow
+                                    size={55}
+                                    className="weather-icon"
+                                    color={temp > 20 ? "#fff" : "#333"}
+                                  />
+                                )}
+                              </>
+                            ) : weather === "Atmosphere" ? (
+                              <>
+                                {position != 4 ? (
+                                  <WiFog
+                                    size={55}
+                                    className="weather-icon"
+                                    color={temp > 20 ? "#fff" : "#333"}
+                                  />
+                                ) : (
+                                  <WiNightFog
+                                    size={55}
+                                    className="weather-icon"
+                                    color={temp > 20 ? "#fff" : "#333"}
+                                  />
+                                )}
+                              </>
+                            ) : weather === "Clear" ? (
+                              <>
+                                {position != 4 ? (
+                                  <WiDaySunny
+                                    size={55}
+                                    className="weather-icon"
+                                    color={temp > 20 ? "#fff" : "#333"}
+                                  />
+                                ) : (
+                                  <WiNightClear
+                                    size={55}
+                                    className="weather-icon"
+                                    color={temp > 20 ? "#fff" : "#333"}
+                                  />
+                                )}
+                              </>
+                            ) : weather === "Clouds" ? (
+                              <>
+                                {position != 4 ? (
+                                  <WiDayFog
+                                    size={55}
+                                    className="weather-icon"
+                                    color={temp > 20 ? "#fff" : "#333"}
+                                  />
+                                ) : (
+                                  <WiNightFog
+                                    size={55}
+                                    className="weather-icon"
+                                    color={temp > 20 ? "#fff" : "#333"}
+                                  />
+                                )}
+                              </>
+                            ) : weather === "Fog" ? (
+                              <>
+                                {position != 4 ? (
+                                  <WiFog
+                                    size={55}
+                                    className="weather-icon"
+                                    color={temp > 20 ? "#fff" : "#333"}
+                                  />
+                                ) : (
+                                  <WiNightFog
+                                    size={55}
+                                    className="weather-icon"
+                                    color={temp > 20 ? "#fff" : "#333"}
+                                  />
+                                )}
+                              </>
+                            ) : (
+                              <></>
+                            )}
 
-              {forecast.map(item => {
-              if (
-                (moment(new Date(item.dt * 1000)).format("LT") === "3:00 AM") |
-                (moment(new Date(item.dt * 1000)).format("LT") === "9:00 AM") |
-                (moment(new Date(item.dt * 1000)).format("LT") === "3:00 PM") |
-                (moment(new Date(item.dt * 1000)).format("LT") === "9:00 PM")
-              ) {
-                max += 1
-              return (
-                <>
-                    <span>{max < 5 ? item.weather[0].main : ''}</span>
-                </>
-              )}
-            })} 
+                            <span style={temp > 20 ? { color: "#fff" } : {}}>
+                              {item.temp}°C{" "}
+                              {/* {moment(new Date(item.dt * 1000)).format("LT")} */}
+                            </span>
+                          </div>
+                        ) : (
+                          ""
+                        )}
+                      </span>
+                    </>
+                  );
+                }
+              })}
 
-               {/*<div>
+              {/*<div>
                 <span style={temp > 20 ? { color: "#fff" } : {}}>morning</span>
                 <WiSnowWind size={55} color={temp > 20 ? "#fff" : "#333"} />
                 <span style={temp > 20 ? { color: "#fff" } : {}}>8°C</span>
