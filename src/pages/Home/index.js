@@ -6,7 +6,6 @@ import earthImg from "../../assets/earth-white.png";
 //styled components
 import { Container, CityButtons } from "./styles";
 
-
 //libs
 import { useNavigate } from "react-router-dom";
 

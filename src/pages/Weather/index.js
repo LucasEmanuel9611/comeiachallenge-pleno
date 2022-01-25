@@ -86,8 +86,11 @@ export default function Weather() {
     });
   }, []);
 
+  // max number for items in forecast 
   var max = 0;
+  // night icon in forecast
   var position = 0;
+  //Day period for forecast
   var forecastPosition = 0;
   
   return (
